@@ -13,5 +13,13 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     
-    - name: GitHub Action for Helm Templates Validation
+    - name: helm-check-time-server
       uses: igabaydulin/helm-check-action@0.2.1
+      env:
+        CHART_LOCATION: ./time-server
+        CHART_VALUES: ./time-server/values.yaml
+    - name: helm-check-auth-server
+      uses: igabaydulin/helm-check-action@0.2.1
+      env:
+        CHART_LOCATION: ./auth-server
+        CHART_VALUES: ./auth-server/values.yaml
